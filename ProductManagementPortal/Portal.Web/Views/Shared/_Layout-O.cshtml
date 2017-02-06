@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - Product Management Portal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="header">
+        <h1><a href="/">Product Management Portal</a></h1>
+        <ul id="navlist">
+            <li class="first"><a href="@Url.Content("~")" id="current">Home</a></li>
+            @*<li><a href="@Url.Content("~/Home/")">>Mobile Store</a></li>*@
+            @*<li>@{Html.RenderAction("Index", "ShoppingCart");}</li>*@
+            <li><a href="@Url.Content("~/Product/ProductAdministration/")">Product Administration</a></li>
+        </ul>
+    </div>
+
+    @*@{Html.RenderAction("Index", "Home");}*@
+
+    <div id="main">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        <a>Revolutionary Product Management Suite</a>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

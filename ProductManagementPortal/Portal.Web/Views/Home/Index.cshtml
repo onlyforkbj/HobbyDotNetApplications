@@ -1,0 +1,34 @@
+﻿
+
+@model List<ProductManagementPortal.Models.ProductModel>
+@{
+    ViewBag.Title = "Product Management Portal";
+}
+@*<div id="promotion">
+    </div>*@
+
+<ul class="tileMe">
+    @foreach (var product in Model)
+    {
+        <li>
+            <a class="tile" href="@Url.Action("Details", "Product",
+                new { id = product.Id })">
+
+                <img alt="@product.Description" src="/Content/Images/phone-image.png" />
+                <p>
+                    <h2>@product.Description</h2>
+                </p>
+                <p>
+                    <em>Price :</em>
+                    @($"{product.Price:F}") SEK
+                </p>
+                <p>
+                    <em>Stock Quantity </em>: @product.StockQuantity
+                </p>
+                <p class="button">
+                    @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = product.Id }, "")
+                </p>
+            </a>
+        </li>
+    }
+</ul>
